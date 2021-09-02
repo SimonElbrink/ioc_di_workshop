@@ -4,6 +4,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import se.lexicon.workshop.config.ComponentScanConfig;
 import se.lexicon.workshop.data_access.StudentDao;
 import se.lexicon.workshop.models.Student;
+import se.lexicon.workshop.service.StudentManagement;
 import se.lexicon.workshop.util.UserInputService;
 
 /**
@@ -20,9 +21,13 @@ public class App
 
         UserInputService userInputService =context.getBean(UserInputService.class);
 
-        String string = userInputService.getString();
+//        String string = userInputService.getString();
+//
+//        System.out.println("string = " + string);
 
-        System.out.println("string = " + string);
+//        int integer = userInputService.getInt();
+//
+//        System.out.println("integer = " + integer);
 
 //        StudentDao studentDao = context.getBean(StudentDao.class);
 //
@@ -30,6 +35,12 @@ public class App
 //        studentDao.save(new Student(1338,"Erik Svensson"));
 //
 //        studentDao.findAll().forEach(System.out::println);
+
+        StudentManagement studentManagement = context.getBean(StudentManagement.class);
+
+        studentManagement.create();
+
+        studentManagement.findAll().forEach(System.out::println);
 
 
     }

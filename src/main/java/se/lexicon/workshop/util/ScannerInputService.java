@@ -28,6 +28,16 @@ public class ScannerInputService implements UserInputService{
 
     @Override
     public int getInt() {
-        return scanner.nextInt();
+        boolean valid = false;
+        int number = 0;
+        while(!valid) {
+            try {
+                number = Integer.parseInt(getString().trim());
+                valid = true;
+            }catch(NumberFormatException e) {
+                System.out.println("Input was not a number");
+            }
+        }
+        return number;
     }
 }
