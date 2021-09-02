@@ -17,9 +17,4 @@ public class ComponentScanConfig {
         return new Scanner(System.in);
     }
 
-    @Bean
-    public UserInputService userInputService(){
-        return new ScannerInputService(scanner());
-    }
-
 }
